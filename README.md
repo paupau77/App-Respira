@@ -16,7 +16,7 @@
 
 ---
 
-# 🌿 ¿Qué es Respirá?
+# 🌿 Qué es Respirá?
 
 **Respirá** es una aplicación web progresiva (PWA) diseñada para acompañar a las personas en el proceso de dejar de fumar.
 
@@ -200,20 +200,6 @@ Vista previa
 
 ```bash
 npm run preview
-```
-
----
-
-# 📸 Capturas
-
-Próximamente.
-
-```
-📷 Dashboard
-📷 Estadísticas
-📷 Logros
-📷 Diario
-📷 Progreso
 ```
 
 ---
