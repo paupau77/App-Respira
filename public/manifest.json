@@ -1,0 +1,20 @@
+{
+    "name": "Respirá",
+    "short_name": "Respirá",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f1f7f3",
+    "theme_color": "#16804a",
+    "icons": [
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

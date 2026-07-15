@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de colores verde claro premium */
+    --bg-app: linear-gradient(135deg, #f2faf6 0%, #e8f5ee 100%);
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --primary-light: #e6fcf4;
+    --text-main: #0f2d21;
+    --text-muted: #4b6b5e;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(255, 255, 255, 0.6);
+    --shadow-premium: 
+        0 10px 30px -10px rgba(16, 185, 129, 0.08), 
+        0 1px 3px rgba(16, 185, 129, 0.02);
+    --shadow-hover: 
+        0 20px 40px -15px rgba(16, 185, 129, 0.15), 
+        0 2px 8px rgba(16, 185, 129, 0.05);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 12px;
+}
+
+body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-app);
+    color: var(--text-main);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.brand svg {
+    color: var(--primary);
+    filter: drop-shadow(0 4px 6px rgba(16, 185, 129, 0.2));
+    animation: pulseHeart 2s infinite ease-in-out;
+}
+
+.brand h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.brand p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+@keyframes pulseHeart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    width: min(760px, 94%);
+    margin: 30px auto;
+    padding-bottom: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* TARJETAS PREMIUM */
+section {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-premium);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+section h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* BOTONES */
+button {
+    border: none;
+    cursor: pointer;
+    background: var(--primary);
+    color: white;
+    padding: 14px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: inherit;
+    box-shadow: 0 10px 20px -6px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -5px rgba(16, 185, 129, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* BOTÓN DE ANTOJO (CRITICAL HELP) */
+.craving-button {
+    background: #ef4444 !important;
+    box-shadow: 0 10px 20px -6px rgba(239, 68, 68, 0.3) !important;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.craving-button:hover {
+    background: #dc2626 !important;
+    box-shadow: 0 12px 24px -5px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* INPUTS, SELECTS, TEXTAREAS */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid rgba(16, 185, 129, 0.15);
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 6px;
+}
+
+/* SLIDER DE INTENSIDAD (RANGE) */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 4px;
+    border: none;
+    margin: 12px 0 20px;
+    padding: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+    transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+/* SELECCIÓN DE ÁNIMOS (DIARIO) */
+.moods {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 12px 0 20px;
+}
+
+.moods button {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1.5px solid rgba(16, 185, 129, 0.1);
+    color: inherit;
+    font-size: 1.6rem;
+    padding: 12px;
+    box-shadow: none;
+    border-radius: var(--radius-md);
+}
+
+.moods button:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-premium);
+}
+
+/* GRIDS DE ESTADÍSTICAS */
+.stats-grid, .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.stats-grid div, .stat {
+    background: var(--primary-light);
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid rgba(16, 185, 129, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.stats-grid div:hover, .stat:hover {
+    transform: translateY(-2px);
+}
+
+.stats-grid strong, .stat strong {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-hover);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.stats-grid span, .stat p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.stat span {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* CONTADOR DE TIEMPO SIN FUMAR */
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.timer-grid div {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(16, 185, 129, 0.1);
+    padding: 18px 8px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-premium);
+}
+
+.timer-grid strong {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.timer-grid span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* RECUPERACIÓN DE TU CUERPO (TIMELINE) */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 28px;
+    bottom: -16px;
+    width: 2px;
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.timeline-item svg {
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+}
+
+.timeline-item svg.done {
+    color: var(--primary);
+}
+
+.timeline-item svg.pending {
+    color: #cbd5e1;
+}
+
+.timeline-item h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.timeline-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* LOGROS Y MEDALLAS */
+.badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.badge, .achievement {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge.unlocked, .achievement.unlocked {
+    opacity: 1;
+    background: var(--primary-light);
+    border-color: rgba(16, 185, 129, 0.15);
+    box-shadow: var(--shadow-premium);
+}
+
+.badge svg, .achievement svg {
+    color: #eab308;
+    filter: drop-shadow(0 2px 4px rgba(234, 179, 8, 0.2));
+}
+
+.badge h4, .achievement h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.badge p, .achievement p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* NAVEGACIÓN FLOTANTE (PILL STYLING) */
+.bottom-nav {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(500px, 92%);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 12px;
+    border-radius: 40px;
+    box-shadow: 
+        0 20px 40px -10px rgba(15, 45, 33, 0.15),
+        0 1px 1px rgba(255, 255, 255, 0.5) inset;
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    z-index: 1000;
+}
+
+.bottom-nav button {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottom-nav button:hover {
+    background: rgba(16, 185, 129, 0.05);
+    color: var(--primary-hover);
+    transform: none;
+    box-shadow: none;
+}
+
+.bottom-nav button.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 8px 16px -4px rgba(16, 185, 129, 0.3);
+}
+
+/* CARDS DE SALUD (HEALTH PROGRESS & HELP) */
+.health-card {
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(16, 185, 129, 0.08);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.health-card svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.health-info {
+    flex: 1;
+}
+
+.health-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.bar .fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary) 0%, #34d399 100%);
+    border-radius: 5px;
+    transition: width 1s ease-out;
+}
+
+.health-info span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.warning {
+    font-size: 0.8rem;
+    color: #b45309;
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+}
+
+/* PÁGINA DE BIENVENIDA */
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    padding: 30px;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.welcome svg {
+    color: var(--primary);
+    animation: float 4s ease-in-out infinite;
+}
+
+.welcome h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.welcome p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* CAJA DE AYUDA DE ANTOJOS ACTIVA */
+.craving-box {
+    margin-top: 20px;
+    padding: 24px;
+    background: #fff5f5;
+    border: 1px solid #fee2e2;
+    border-radius: var(--radius-md);
+    text-align: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.craving-box svg {
+    color: #ef4444;
+    margin-bottom: 12px;
+}
+
+.craving-box p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #991b1b;
+    margin-bottom: 16px;
+}
+
+.craving-box h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ef4444;
+}
+
+/* DIARIO Y METAS EXTRA */
+.goal-result, .diary-entry-card {
+    background: var(--primary-light);
+    border: 1px dashed rgba(16, 185, 129, 0.3);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-top: 18px;
+}
+
+.goal-result h4 {
+    font-size: 0.95rem;
+    color: var(--primary-hover);
+}
+
+.motivation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #e6fcf4 0%, #d1fae5 100%);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.motivation svg {
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+/* RESPONSIVE */
+@media(max-width:700px) {
+    .container {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .header {
+        padding: 16px 20px;
+    }
+
+    .brand h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 20px;
+        border-radius: var(--radius-md);
+    }
+}
